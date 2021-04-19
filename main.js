@@ -1,5 +1,5 @@
 "use strict"
-
+//constant to define ...
 const leftUpperCorner =  polygon[3];
 const rightBottomCorner = polygon[1];
 
