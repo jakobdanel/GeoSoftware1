@@ -7,6 +7,7 @@ var resultArray = new Array(route.length);
 let intersectIndex = [];
 var distanceFromPoint2Point = new Array(route.length - 1);
 var distancesSubSequences = [];
+var tableContent = [];
 
 // Function to find out whether a point is in a polygon or not.
 // Works only with polygons which are parellel to the longitude and latitude-axis 
@@ -84,16 +85,73 @@ function calculateFullDistance2(){
     return sum;
 }
 
+function fillContentTable(){
+    for (let index = 0; index < distancesSubSequences.length; index++) {
+        var tableRow = Array(3);
+        tableRow[0] = index + 1;
+        tableRow[1] = distancesSubSequences[index];
+        tableRow[2] = route[intersectIndex[index]];
+        tableRow[3] = route[intersectIndex[index + 1]];
+        tableRow[4] = resultArray[intersectIndex[index] + 1];
+        
+        tableContent.push(tableRow);
+    }
+
+}
+function convertTableValues(){
+    for (let index = 0; index < tableContent.length; index++) {
+        tableContent[index][1] = round(tableContent[index][1],2);
+        tableContent[index][2] = "(" + tableContent[index][2] +")"; 
+        tableContent[index][3] = "(" + tableContent[index][3] +")"; 
+        if(tableContent[index][4]){
+            tableContent[index][4] = "YES";
+        } else {
+            tableContent[index][4] = "NO"
+        }
+    }
+}
+function makeTableHTML(myArray) {
+    var result = "<table border=1>";
+    for(var i=0; i<myArray.length; i++) {
+        result += "<tr>";
+        for(var j=0; j<myArray[i].length; j++){
+            result += "<td>"+myArray[i][j]+"</td>";
+        }
+        result += "</tr>";
+    }
+    result += "</table>";
+
+    return result;
+}
+function round(x,n){
+    var tmp = x*Math.pow(10,n);
+    var tmp2 =  Math.round(tmp);
+    return tmp2 / Math.pow(10,n);
+}
 fillResultArray();
 fillIntersectIndex();
 calculateDistances();
 calculateDistancesSubSequences();
-//console.table(resultArray);
-//console.table(intersectIndex);
+fillContentTable();
+
+tableContent.sort((a,b) => b[1] - a[1]);
+convertTableValues();
+document.getElementById("tbody").innerHTML = makeTableHTML(tableContent);
+document.getElementById("totalLength").innerHTML = "Total Length in meter: "+ round(calculateFullDistance(),2)+"m";
+
+console.log(round(23.1234546326281,2));
+/*
+console.table(resultArray);
+console.table(intersectIndex);
 console.table(distanceFromPoint2Point);
+console.table(distancesSubSequences);
+
 console.table(distancesSubSequences);
 
 console.log(calculateFullDistance());
 console.log(calculateFullDistance2());
 
- 
+console.table(tableContent);
+
+console.log(intersectIndex.toString());
+*/
