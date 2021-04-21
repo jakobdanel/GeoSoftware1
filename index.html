@@ -5,6 +5,7 @@
     
     <script src="polygon.js"></script>
     <script src="route.js"></script>
+    <script src="tableContent.js"></script>
     <script defer src="main.js"></script>
 </head>
 <body>
@@ -13,14 +14,14 @@
         This is the solution for Exercise 1 for the Course GeoSoftware. The task was to cut a route by a polygon.The following
         table shows the outcoming sections sorted by their length. Also is classified which part of the route the section comes from.
         The first position is the start of the route as (Longitude, Latitude) Coordinate in the WGS84 Reference System. The last column
-        describe if the section was inside or outsside the Polygon.
+        describe if the section was inside or outside the Polygon.
     </p>
     <table style="width:80%;">
         <tr>
           <th>Section</th>
           <th>Length in Meters</th>
-          <th>First Position</th>
-          <th>Last Position</th>
+          <th>First Position (Long,Lat)</th>
+          <th>Last Position (Long,Lat)</th>
           <th>Is inside</th>
         </tr>
         <tbody id="tbody">   
