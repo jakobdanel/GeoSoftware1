@@ -26,7 +26,7 @@
   * @param {number[]} rightBottomCornerBBox A point from the form [long,lat] in WGS84. Should be the right bottom corner from the bounding box of the rectangle.
   * @returns true if the point is inside the rectangle, else returns false.
   */
- function isPointInsidePolygon(point, leftUpperCornerBBox, rightBottomCornerBBox){
+ function isPointInsidePolygon(point, leftUpperCornerBBox = leftUpperCorner, rightBottomCornerBBox = rightBottomCorner){
      return point[0] > leftUpperCornerBBox[0] && point[0] < rightBottomCornerBBox[0] && point[1] < leftUpperCornerBBox[1] && point[1] > rightBottomCornerBBox[1]
  }
  /**
@@ -36,7 +36,7 @@
   * @param {number[]} rightBottomCornerBBox A point from the form [long,lat] in WGS84. Should be the right bottom corner from the bounding box of the rectangle.
   * @returns an array of booleans for each point the array contains the value from isPointInsidePolygon(). 
   */
- function arePointsInsidePolygon(points, leftUpperCornerBBox, rightBottomCornerBBox){
+ function arePointsInsidePolygon(points, leftUpperCornerBBox = leftUpperCorner, rightBottomCornerBBox = rightBottomCorner){
      let result = [];
      for (let i = 0; i < points.length; i++) {
          result[i] = isPointInsidePolygon(points[i],leftUpperCornerBBox,rightBottomCornerBBox);
@@ -53,7 +53,7 @@
   * @param {number[]} rightBottomCornerBBox A point from the form [long,lat] in WGS84. Should be the right bottom corner from the bounding box of the rectangle.
   * @returns An array of numbers each one is either a indice for the intersect point or the start/end indice from the points array. 
   */
- function findIntersectIndices(points, leftUpperCornerBBox,rightBottomCornerBBox){
+ function findIntersectIndices(points, leftUpperCornerBBox = leftUpperCorner, rightBottomCornerBBox = rightBottomCorner){
      let pointsInsidePolygon = arePointsInsidePolygon(points,leftUpperCornerBBox,rightBottomCornerBBox);
      let result = [];
      for (let i = 0; i < pointsInsidePolygon.length; i++) {
