@@ -1,32 +1,30 @@
 <!DOCTYPE html>
+
 <head>
-    <title> GeoSoftware1</title>
-    <link rel="stylesheet" href="style.css"/>
-    
-    <script src="polygon.js"></script>
-    <script src="route.js"></script>
-    <script src="tableContent.js"></script>
-    <script defer src="main.js"></script>
+  <title> GeoSoftware1</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="polygon.js"></script>
+  <script src="route.js"></script>
+  <script src="geojsonConverter.js"></script>
+  <script src="tableContent.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <h1>Exercise 1</h1>
-    <p style="width:80%;">
-        This is the solution for Exercise 1 for the Course GeoSoftware. The task was to cut a route by a polygon.The following
-        table shows the outcoming sections sorted by their length. Also is classified which part of the route the section comes from.
-        The first position is the start of the route as (Longitude, Latitude) Coordinate in the WGS84 Reference System. The last column
-        describe if the section was inside or outside the Polygon.
-    </p>
-    <table style="width:80%;">
-        <tr>
-          <th>Section</th>
-          <th>Length in Meters</th>
-          <th>First Position (Long,Lat)</th>
-          <th>Last Position (Long,Lat)</th>
-          <th>Is inside</th>
-        </tr>
-        <tbody id="tbody">   
-      </table>
-    <p id="totalLength"></p>
-    <p style="text-align: center;">by Jakob Danel</p>
-      
+  <h1>Exercise 2</h1>
+  <p style="width:80%;" id="describePageContent"></p>
+  <input type="text" id="routeInput" />
+  <input type="submit" id="routeSubmit" title="Submit text field input" />
+  <input type="file" id="routeInputFile" />
+  <input type="submit" id="submitInputFile" title="Submit file input" />
+  <button onclick="loadDefaultRoute()">Load default route</button>
+  <table id="table" style="width:80%;"></table>
+  <p id="totalLength"></p>
+  <button id="routeDownloader" onclick="saveRoute()">Download route as GeoJSON file</button>
+  <button id="polygonDownloader" onclick="savePolygon()">Download polygon as GeoJSON file</button>
+  <button id="showPolygon" onclick="showPolygon()">Show Polygon data</button>
+  <p id="polygonGJSONasString"></p>
+  <button id="showRoute" onclick="showRoute()">Show Route data</button>
+  <p id="routeGJSONasString"></p>
+  <p style="text-align: center;">by Jakob Danel</p>
 </body>
