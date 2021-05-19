@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(0, 2, 15);
+}
+
+h1, p {
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#map {
+    height: 700px;
+}
