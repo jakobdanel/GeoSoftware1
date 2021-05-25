@@ -72,11 +72,11 @@ class RequestPosition {
 }
 
 /**
- * Super class, for all XHR request classes. Is useless if this class will iniatilized themselve. Only used as constructor, for the different
+ * Super class, for all jquery request classes. Is useless if this class will iniatilized themselve. Only used as constructor, for the different
  * use cases. Dont have any methods, only constructs, the requestObj and the logic, for cases of success and fail.
  * @class
  */
-class XHRRequest {
+class JQueryRequest {
 
     /**
      * 
@@ -92,18 +92,6 @@ class XHRRequest {
         this.processingFunction = processingFunction;
         this.args = args;
 
-        //Creating a new request object.
-        this.requestObj = new XMLHttpRequest();
-
-        //Defining that on succesfull load of the data, processingFunction will be called.
-        this.requestObj.onload = function () {
-            processingFunction(this.responseText, args);
-        };
-
-        //Defining the error handling here. (Only passes information to the console) 
-        this.requestObj.onerror = function () {
-            console.error("Error occured");
-        }
     }
 
 
@@ -112,9 +100,9 @@ class XHRRequest {
  * These class is made to make weather requests. Needed is a geographical position and function, which will be called if the requesst was
  * successful. Uses the OpenWeatherMap (OWM) API. See https://openweathermap.org/ for further information.
  * @class
- * @extends {XHRRequest}
+ * @extends {JQueryRequest}
  */
-class RequestWeatherData extends XHRRequest {
+class RequestWeatherData extends JQueryRequest {
 
     /**
      * 
@@ -140,18 +128,23 @@ class RequestWeatherData extends XHRRequest {
      * request to the URL. If the request was successful, the processingFunction will be called.
      */
     request() {
-        this.requestObj.open("GET", linkBuilder(buildLinkObjectWeatherDataRequest([this.coordinates.longitude, this.coordinates.latitude]),[true]));
-        this.requestObj.send();
+        let obj = this;
+        $.ajax({
+            url: linkBuilder(buildLinkObjectWeatherDataRequest([obj.coordinates.longitude, obj.coordinates.latitude]), [true]),
+            type: "GET"
+        }).done(function (data) { console.log(data); obj.processingFunction(data, obj.args) })
+            .fail(function (error) { alert(error) });
     }
+
 }
 
 /**
  * These class is used to make requests, on a Datetime object, by a given unix time. For these an API is used. Further information to the API:
  * https://unixtime.co.za/ 
  * @class
- * @extends {XHRRequest}
+ * @extends {JQueryRequest}
  */
-class RequestDateTime extends XHRRequest {
+class RequestDateTime extends JQueryRequest {
 
     /**
      * 
@@ -174,8 +167,12 @@ class RequestDateTime extends XHRRequest {
     * request to the URL. If the request was successful, the processingFunction will be called.
     */
     request() {
-        this.requestObj.open("GET", linkBuilder(generateUnixRequestObject(this.unixTimeStamp)));
-        this.requestObj.send();
+        let obj = this;
+        $.ajax({
+            url: linkBuilder(generateUnixRequestObject(obj.unixTimeStamp)),
+            type: "GET"
+        }).done(function (data) { obj.processingFunction(data, obj.args) })
+            .fail(function (error) { alert(error) });
     }
 }
 
