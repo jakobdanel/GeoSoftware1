@@ -1,12 +1,18 @@
+html,
 body {
-    background-color: rgb(0, 2, 15);
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  padding-top: 60px;
 }
 
-h1, p {
-    color: rgb(0, 0, 0);
-    font-family: Arial, Helvetica, sans-serif;
+/* since the navbar is fixed we need to add some space to the body */
+body {
+  padding-top: 0px;
 }
-
+div.container {
+  padding: 0cm;
+  margin: 0cm;
+  margin-right: 0cm;
+}
 #map {
     height: 700px;
 }
