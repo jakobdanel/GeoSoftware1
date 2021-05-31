@@ -489,3 +489,10 @@
 #=#=#=#=# Propagation starts 2021-05-31T10:34:08Z (last step: 325 msec, total: 325 msec)
 10:34:08||exercise04/index.html|64|1|1622457246|57e189e203de459b872095b9efcf7452|7543|2185856000oc5cc11235d1|4||204|6796|1622456759|094162d2-1dc5-4820-80ff-0ad67dd3942c|
 #=#=#=# Syncrun finished 2021-05-31T10:34:09Z (last step: 340 msec, total: 666 msec)
+#=#=#=# Syncrun started 2021-05-31T10:34:45Z
+#=#=#=#=# Propagation starts 2021-05-31T10:34:45Z (last step: 516 msec, total: 516 msec)
+#=#=#=# Syncrun finished 2021-05-31T10:34:45Z (last step: 27 msec, total: 543 msec)
+#=#=#=# Syncrun started 2021-05-31T10:36:02Z
+#=#=#=#=# Propagation starts 2021-05-31T10:36:02Z (last step: 560 msec, total: 560 msec)
+10:36:02||exercise04/index.html|64|1|1622457360|aef16448b460b8293da61975316e3853|7225|2185856000oc5cc11235d1|4||204|7543|1622457246|a70843e7-2272-4899-a732-edd69bb42819|
+#=#=#=# Syncrun finished 2021-05-31T10:36:03Z (last step: 370 msec, total: 930 msec)
