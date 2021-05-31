@@ -69,10 +69,9 @@ function setMarkerToPosition(coordinates) {
  * of the design of the RequestWeatherData class.
  */
 function processWeatherData(weatherData, markerData) {
-    let json = JSON.parse(weatherData);
-    let html = generateWeatherDataHTML(json);
+    let html = generateWeatherDataHTML(weatherData);
     let marker = markerData[0];
-    marker.setIcon(createLeafletIcon(json.weather[0].icon));
+    marker.setIcon(createLeafletIcon(weatherData.weather[0].icon));
     marker.bindPopup(html);
     allMarkers.push(marker);
     marker.addTo(map);
