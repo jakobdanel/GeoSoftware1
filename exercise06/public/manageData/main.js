@@ -86,7 +86,7 @@ function updateRoutes() {
             return;
         }
         //Building the headlines of the table.
-        let html = "<table><tr><th>Name</th><th>First Point</th><th>Last Point</th><th>Length</th><th>Delete</th><th>Rename</th><th>Submit renaming</th></tr>";
+        let html = `<table class="table table-bordered"><tr><th>Name</th><th>First Point</th><th>Last Point</th><th>Length</th><th>Delete</th><th>Rename</th><th>Submit renaming</th></tr>`;
         for (let i = 0; i < data.response.length; i++) {
             names.push(data.response[i].properties.name);
             //Generating a new table row for each route.
@@ -173,8 +173,7 @@ function addEventListeners(routes) {
                     _id: routes[i]._id,
                     name: input
                 }, (response) => {
-                    alert("Renaming successful");
-                    console.log(response);
+                    window.location.href = "./index.html"
                 })
                 routes[i].properties.name = input;
             }
