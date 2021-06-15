@@ -1,0 +1,33 @@
+{
+  "name": "exercise06",
+  "version": "1.0.0",
+  "description": "These is the package for the Exercise 06 of the GeoSoftware coursse ",
+  "main": "exercise06/server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "leaflet-draw": "^1.0.4",
+    "mongodb": "^3.6.9",
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node exercise06/server.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakobdanel/GeoSoftware1.git"
+  },
+  "keywords": [
+    "GeoSoftware",
+    "Map",
+    "Route"
+  ],
+  "author": "Jakob Danel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakobdanel/GeoSoftware1/issues"
+  },
+  "homepage": "https://github.com/jakobdanel/GeoSoftware1#readme"
+}
