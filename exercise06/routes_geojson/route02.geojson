@@ -1,0 +1,35 @@
+{
+    "type": "Feature",
+    "properties": {
+        "name": "test02",
+        "startingPoint": "Muenster",
+        "endpoint": "Muenster-Hiltrup"
+    },
+    "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+            [
+                [
+                    53.4663,
+                    -6.32819
+                ],
+                [
+                    4.5636,
+                    5.773727
+                ],
+                [
+                    6.37288,
+                    4.9392
+                ],
+                [
+                    4.54,
+                    8.875
+                ],
+                [
+                    56,
+                    -6
+                ]
+            ]
+        ]
+    }
+}
