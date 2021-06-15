@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <header>
     <!--JQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <!--Scripts-->
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="../style.css" />
     <script defer src="main.js"></script>
     <!--Metadata-->
     <title>Manage Route Data</title>
@@ -11,9 +22,69 @@
 </header>
 
 <body>
-    <div id="data"></div>
-    <button onclick="del()" id="del">Delete</button>
-    <input type="file" title="Upload geojson file" id="routeInput" />
-    <button onclick="submit()" id="submit">Submit</button>
-    <a class="btn btn-default" href="../index.html"> Home</a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">GeoSoftware 1 </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#colNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="colNav">
+                <div class="navbar-nav">
+
+                    <a class="nav-link" href="./../index.html"> Home </a>
+
+
+                    <a class="nav-link" href="./index.html"> Manage Data</a>
+
+
+                    <a class="nav-link" href="./../leafletMap/index.html"> Leaflet Map </a>
+
+                </div>
+            </div>
+    </nav>
+    <div class="content" style="padding-left: 10px;padding-right: 10px;">
+        <div class="row">
+            <div class="col-md-8 col-sd-12" id="information-text">
+                <p>Here on these page you can manage your routes. That means that your be able to upload new routes,
+                    deleting
+                    old routes and renaming existing routes. Notice that every name for a route can only used once, so
+                    make sure
+                    that your new routes have a not used name or rename one old route. For the deleting and renaming are
+                    functions inside the table. If you want want to delete some routes, mark their checkboxes and hit
+                    the delete
+                    button. For renaming type a new name inside the box and hit the Ok button. For upload a new route
+                    use the
+                    upload a file button. The data must be stored as an json or geojson file and need to respect some
+                    formatting
+                    guidelines. Make sure that is only one object and not an array. These object should hold the three
+                    keys
+                    "type", "properties" and "geometry" in the first order. "type" need to have the value "Feature",
+                    while
+                    "properties" and "geometry" are objects. The "properties" need a key "name" with a unique value. You
+                    can
+                    also add extra key value pairs with additonal information to the propertiess object. In the geometry
+                    object
+                    your need to add a "type" key also. At these place the value must be "MultiLineString". Also your
+                    adding a
+                    key "coordinates". These coordinatess must follow a strict format. It must be an one element array,
+                    which
+                    contains an array with all points for your route. Each of these array elements need to be an array
+                    with to
+                    elements. These two elements are the coordinates of one point of the route. The coordinates must be
+                    in the
+                    format [lat,lon]. The coordinates must be in WGS84. Only if you can use these format the server can
+                    interprete the data.</p>
+
+                <div id="data"></div>
+                <button onclick="del()" id="del">Delete</button>
+                <input type="file" title="Upload geojson file" id="routeInput" />
+                <button onclick="submit()" id="submit">Submit</button>
+                <a class="btn btn-home" href="../index.html"> Home</a>
+            </div>
+            <div class="col-md-4 col-sd-12 " id="picture">
+                <h6>Here is a small example:</h6>
+                <img src="example.PNG" />
+            </div>
+        </div>
+    </div>
 </body>
