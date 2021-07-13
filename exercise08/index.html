@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Exercise 08</title>
+
+    <!--Vue.js script-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!--Local Scripts-->
+    <script src="../exercise01_02/polygon.js"></script>
+    <script src="../exercise01_02/route.js"></script>
+    <script src="../exercise01_02/geojsonConverter.js"></script>
+    <script src="../exercise01_02/tableContent.js"></script>
+    <script defer src="script.js"></script>
+
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="input-route">
+        <p>{{ message }}</p>
+        <p>{{ feedback }}</p>
+        <input v-model="message">
+        <button v-on:click="submitRoute">Submit Route</button>
+    </div>
+    <div id="route-table">
+        <div v-if="hasData">
+            <h2>Sections generated from the Input</h2>
+            <table class="table" id="table">
+                <tr>
+                    <th> Section </th>
+                    <th> Meters </th>
+                    <th> First Position(Long,Lat)</th>
+                    <th> Last Position (Long,Lat)</th>
+                    <th> Is inside </th>
+                </tr>
+                <tbody>
+                    <tr v-for="row in sections">
+                        <td>{{ row.section}}</td>
+                        <td>{{ row.distance}}</td>
+                        <td>{{ row.firstElement}}</td>
+                        <td>{{ row.lastElement}}</td>
+                        <td>{{ row.isInside}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div v-if="!hasData">
+            <p>No valid input at these moment!</p>
+        </div>
+    </div>
+</body>
