@@ -1,0 +1,31 @@
+extends layout
+
+block scripts
+    link(rel="stylesheet", href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css",
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==",
+    crossorigin="")
+
+    script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js",
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==",
+    crossorigin="")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js")
+    script(src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js")
+    link(rel="stylesheet", href="../stylesheets/map.css")
+    script(defer src="/../javascripts/map.js")
+
+
+block content
+    p Draw a polygon or an Point on the map for a point of interest.
+    div(id="map")
+    h3 Adding Information for the Point of Interest
+    div(id="inputFields")  
+        p {{labels.name}}
+        input(type="text",v-model='input.name', name="inputName")
+        p {{labels.url}}
+        input(type="text", v-model='input.url', name="inputURL")
+        p {{labels.description}}
+        input(type="text",v-model='input.description', name="inputDescription")
+        br
+        button(v-on:click="submitInput",type="submit") Submit 
+        
