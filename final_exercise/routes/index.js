@@ -1,3 +1,7 @@
+/**
+ * @author Jan Hoping, Jakob Danel
+ */
+
 var express = require('express');
 var router = express.Router();
 

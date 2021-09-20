@@ -1,3 +1,4 @@
+
 /**
  * @author Jan Hoping, Jakob Danel
  */
@@ -6,9 +7,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+//Get HTML for manage Tour
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('manageTour', {});
 });
 
 module.exports = router;

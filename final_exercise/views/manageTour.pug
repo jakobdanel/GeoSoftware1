@@ -1,0 +1,10 @@
+extends generalStructure
+block scripts
+    link(rel="stylesheet", href="../stylesheets/map.css")
+    script(defer src="/../javascripts/library.js") 
+    script(defer src="/../javascripts/manageTour.js") 
+block content
+    h2 Manage all Tours
+    div(id="data")
+    button(onclick="del()",id="del") Delete
+    div(id='map')  

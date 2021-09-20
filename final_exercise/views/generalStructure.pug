@@ -1,0 +1,68 @@
+extends layout 
+
+block plugins
+    script(src='https://npmcdn.com/@turf/turf/turf.min.js')
+    link(rel="stylesheet", href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css",
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==",
+    crossorigin="")
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js",
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", crossorigin="anonymous")
+    link(href="/../stylesheets/jquery-ui.css",rel="Stylesheet")
+    script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js",integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=",crossorigin="anonymous")
+    script(src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js",
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==",
+    crossorigin="")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js")
+    script(src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js")
+    link(rel="stylesheet", href="/../stylesheets/style.css")
+
+block scripts
+
+block navbar
+    nav(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top")
+        div(class="container-fluid")
+            a(class="navbar-brand" href='http://localhost:3000') Geosoftware 1
+            button(class="navbar-toggler",type="button",data-bs-toggle="collapse", data-bs-target="#colNav")
+                span(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse",id="colNav")
+                div(class="navbar-nav")
+                    a(class="nav-link" href="http://localhost:3000") Home
+                    a(class="nav-link" href="http://localhost:3000/inputMap") Create Point of Interest
+                    a(class="nav-link" href="http://localhost:3000/managePoi") Manage Point of Interests
+                    a(class="nav-link" href="http://localhost:3000/inputTour") Create Tour
+                    a(class="nav-link" href="http://localhost:3000/manageTour") Manage Tour
+                    a(class="nav-link" href="http://localhost:3000/showTours") Show Tour
+
+
+block footer
+    footer(class="text-center text-lg-start bg-dark text-muted col-md-12 col-sd-12")
+        section(class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom")
+        section(class="")
+            div(class="container text-center text-md-start mt-5 ")
+                div(class="row mt-3")
+                    div(class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4")
+                        h6(class="text-uppercase fw-bold mb-4")
+                            i(class="fas fa-gem me-3") Brief information
+                        
+                        p These is the web page corresponding to the GeoSoftware 1 course at the ifgi from the Uni Münster. This is the solution for the final assignment. 
+                     
+                    div(class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4")
+                        h6(class="text-uppercase fw-bold mb-4") Other exercises
+                        p
+                            a(class="nav-link" href="http://localhost:3000/inputMap") Create Point of Interest
+                        p
+                            a(class="nav-link" href="http://localhost:3000/inputTour") Create Tour of Interest
+                        p
+                            a(class="nav-link" href="http://localhost:3000/showTour") Show Tours
+                    div(class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4")
+            
+                        h6(class="text-uppercase fw-bold mb-4") About Course
+                        p
+                            i(class="fas fa-home me-3") GeoSoftware 1
+                        p
+                            i(class="fas fa-envelope me-3") Sommersemester 2021
+                        
+                        p
+                            i(class="fas fa-phone me-3") Universität Münster
+        div(class="text-center p-4", style="background-color: rgba(0, 0, 0, 0.05);") by Jan Hping and Jakob Danel
