@@ -1,0 +1,33 @@
+extends generalStructure
+
+block scripts
+    link(rel="stylesheet", href="../stylesheets/map.css")
+    script(defer src="/../javascripts/library.js") 
+    script(defer src="/../javascripts/inputPoi.js")
+
+
+block content
+    p Draw a polygon or an Point on the map for a point of interest.
+    div(id="map")
+    h3 Adding Information for the Point of Interest
+    div(id="inputFields")  
+        p {{labels.name}}
+        input(class ="one-line-input",type="text",v-model='input.name', name="inputName")
+        p {{labels.url}}
+        input(class ="one-line-input",type="text", v-model='input.url', name="inputURL")
+        br
+        button(v-on:click="submitInput",type="submit") Submit 
+        br
+        p {{message}}
+    div(id="textInputField")
+        p Please input a geojson as text
+        textarea(class ="more-line-input",type='text',v-model='input.geojson',name='inputGeoJSON',wrap=virtual)
+        button(v-on:click="submitInput",type="submit") Submit
+        p {{message}}
+    div(id="fileUploadField")
+        p Please input a File
+        div(id="drop_zone") Drop files here
+        output(id="list")
+
+    
+        

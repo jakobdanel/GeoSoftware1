@@ -1,0 +1,19 @@
+extends generalStructure 
+
+block scripts
+    link(rel="stylesheet", href="../stylesheets/map.css")
+    script(defer src="../javascripts/library.js") 
+    script(defer src="../javascripts/showTours.js")
+
+block content
+    label(for="search-poi") Find Point of Interest: 
+    input(type="text",id="search-poi" ,name="")
+    input(type="submit", id="submit-poi",value="Submit")
+    br
+    label(for="search-tour") Find Tour      :        
+    input(type="text",id="search-tour", name="")
+    input(type="submit", id="submit-tour",value="Submit")
+    br 
+    button(id="clear") Clear
+    button(id="next-busstop") Find next Bus stop.
+    div(id="map")

@@ -116,7 +116,7 @@ function generateInformationParagraph(data, index) {
 }
 
 /**
- * Calling the /deleteRoute posst with the given data.
+ * Calling the /deleteRoute post with the given data.
  * @param {JSON} data Data to delete
  */
 function deleteData(data) {

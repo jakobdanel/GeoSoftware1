@@ -1,0 +1,24 @@
+extends generalStructure
+block scripts
+    link(rel="stylesheet",href="/../stylesheets/map.css")
+    script(defer src="/../javascripts/library.js") 
+    script(defer src="/../javascripts/inputTour.js") 
+block content
+    h2 Input here a new Route
+    div    
+        label(for="name") Name: 
+        input(type="text",id="name" name="Example")
+        br
+        label(for="poi") Point of Interest: 
+        input(type="text",id="poi" name="")
+        br
+        label(for="add-poi") Add Point of Interest to Route
+        input(type="submit", id="add-poi",value="Add")
+        p(id="add-poi-error-message")
+        br
+        label(for="submit-route") Submit Route
+        input(type="submit", value="Submit",id="submit-route")
+    div
+        ol(id="pois",type="1")
+    p(id="message-submit")
+    div(id='map')
